@@ -8,8 +8,6 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // 静态导出不支持 next/image 优化
   images: { unoptimized: true },
-  // 部署在 GitHub Pages 的 /blog 子路径下，所有资源与链接自动加前缀
-  basePath: "/blog",
 };
 
 export default nextConfig;
