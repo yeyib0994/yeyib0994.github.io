@@ -1,0 +1,48 @@
+---
+title: "用 Next.js App Router 搭建个人博客"
+date: "2026-08-01"
+description: "从零开始使用 Next.js App Router、MDX 与 Tailwind CSS 搭建一个极简清爽的个人博客。"
+category: "前端"
+tags: ["Next.js", "MDX", "React"]
+---
+
+本文记录如何用 Next.js 的 App Router 搭建一个支持 MDX 写作的博客。整体思路是：文章以 MDX 文件形式存放在 `content/posts` 目录，构建时读取 frontmatter 与正文，再通过 `next-mdx-remote` 渲染成 React 组件。
+
+## 项目结构
+
+```bash
+app/
+  layout.tsx          # 根布局
+  page.tsx            # 首页文章列表
+  posts/[slug]/page.tsx  # 文章详情
+  tags/[tag]/page.tsx    # 按标签筛选
+components/           # 组件
+lib/posts.ts          # 文章读取工具
+content/posts/*.mdx   # 文章内容
+```
+
+## 读取文章元信息
+
+使用 `gray-matter` 解析 frontmatter，再按日期倒序排列：
+
+```ts
+import fs from "node:fs";
+import matter from "gray-matter";
+
+export function getAllPosts() {
+  return fs.readdirSync("content/posts")
+    .map((file) => {
+      const raw = fs.readFileSync(`content/posts/${file}`, "utf8");
+      return matter(raw);
+    })
+    .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+}
+```
+
+## 渲染 MDX
+
+`next-mdx-remote/rsc` 可以在 Server Component 中直接渲染 MDX 字符串，配合 rehype 插件实现代码高亮与标题锚点。
+
+> 极简风格的秘诀是：充足的留白、克制的配色、清晰的内容层级。
+
+接下来可以继续加入 RSS 订阅、全文搜索等功能，让博客更完整。

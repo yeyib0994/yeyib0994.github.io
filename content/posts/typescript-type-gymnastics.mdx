@@ -1,0 +1,46 @@
+---
+title: "TypeScript 类型体操入门"
+date: "2026-07-20"
+description: "通过几个实用示例理解 TypeScript 高级类型，从条件类型到映射类型。"
+category: "前端"
+tags: ["TypeScript", "类型系统"]
+---
+
+TypeScript 的类型系统本身是图灵完备的，掌握一些「类型体操」技巧能让我们的代码更安全、更具表达力。
+
+## 条件类型
+
+条件类型类似于三元表达式，可以根据输入类型决定输出类型：
+
+```ts
+type IsString<T> = T extends string ? true : false;
+
+type A = IsString<"hello">; // true
+type B = IsString<42>;      // false
+```
+
+## 映射类型
+
+映射类型可以基于一个类型生成新的类型，常用于把所有属性变为可选或只读：
+
+```ts
+type Mutable<T> = {
+  -readonly [K in keyof T]: T[K];
+};
+
+interface ReadonlyPoint {
+  readonly x: number;
+  readonly y: number;
+}
+
+type Point = Mutable<ReadonlyPoint>;
+// { x: number; y: number }
+```
+
+## 实用技巧
+
+- 用 `infer` 在条件类型中提取类型参数。
+- 用 `as` 重映射键名实现 `Getters<T>`。
+- 用模板字面量类型生成字符串联合类型。
+
+类型体操的目标不是炫技，而是让错误在编译期被捕获。保持可读性永远是第一位的。
