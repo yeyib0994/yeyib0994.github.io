@@ -13,6 +13,12 @@ export function PostCard({ post }: { post: PostMeta }) {
   return (
     <article className="group py-5">
       <div className="flex items-baseline gap-3 text-xs text-muted">
+        {post.author && (
+          <>
+            <span>{post.author}</span>
+            <span>·</span>
+          </>
+        )}
         <time dateTime={post.date}>{formatDate(post.date)}</time>
         {post.category && (
           <>
@@ -22,12 +28,6 @@ export function PostCard({ post }: { post: PostMeta }) {
         )}
         <span>·</span>
         <span>{post.readingTime}</span>
-        {post.author && (
-          <>
-            <span>·</span>
-            <span>{post.author}</span>
-          </>
-        )}
       </div>
       <h3 className="mt-1.5 text-lg font-semibold tracking-tight">
         <Link

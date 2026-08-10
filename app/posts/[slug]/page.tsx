@@ -53,6 +53,12 @@ export default async function PostPage({
       <header className="mb-8 border-b border-border pb-6">
         <h1 className="text-3xl font-bold tracking-tight">{post.title}</h1>
         <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
+          {post.author && (
+            <>
+              <span>作者：{post.author}</span>
+              <span>·</span>
+            </>
+          )}
           <time dateTime={post.date}>{formatDate(post.date)}</time>
           <span>·</span>
           <span>{post.readingTime}</span>
@@ -60,12 +66,6 @@ export default async function PostPage({
             <>
               <span>·</span>
               <span>{post.category}</span>
-            </>
-          )}
-          {post.author && (
-            <>
-              <span>·</span>
-              <span>作者：{post.author}</span>
             </>
           )}
         </div>
