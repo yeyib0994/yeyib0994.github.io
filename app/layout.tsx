@@ -22,9 +22,9 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
           disableTransitionOnChange
+          themes={["light", "dark", "sepia", "nord", "forest", "sunset"]}
         >
           <Header />
           <main className="flex-1">
