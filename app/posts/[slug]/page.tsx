@@ -62,6 +62,12 @@ export default async function PostPage({
               <span>{post.category}</span>
             </>
           )}
+          {post.author && (
+            <>
+              <span>·</span>
+              <span>作者：{post.author}</span>
+            </>
+          )}
         </div>
         {post.tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">

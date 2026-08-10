@@ -10,6 +10,7 @@ export type PostMeta = {
   description: string;
   tags: string[];
   category?: string;
+  author?: string;
   readingTime: string;
 };
 
@@ -40,6 +41,7 @@ function parsePost(slug: string): Post | null {
     description: meta.description ?? "",
     tags: meta.tags ?? [],
     category: meta.category,
+    author: meta.author,
     readingTime: readingTime(content).text,
     content,
   };
@@ -60,6 +62,7 @@ export function getAllPostsMeta(): PostMeta[] {
     description: post.description,
     tags: post.tags,
     category: post.category,
+    author: post.author,
     readingTime: post.readingTime,
   }));
 }

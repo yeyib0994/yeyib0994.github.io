@@ -22,6 +22,12 @@ export function PostCard({ post }: { post: PostMeta }) {
         )}
         <span>·</span>
         <span>{post.readingTime}</span>
+        {post.author && (
+          <>
+            <span>·</span>
+            <span>{post.author}</span>
+          </>
+        )}
       </div>
       <h3 className="mt-1.5 text-lg font-semibold tracking-tight">
         <Link
