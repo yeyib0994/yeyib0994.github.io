@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
+import { tagToSlug } from "@/lib/posts";
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("zh-CN", {
@@ -47,7 +48,7 @@ export function PostCard({ post }: { post: PostMeta }) {
           {post.tags.map((tag) => (
             <Link
               key={tag}
-              href={`/tags/${encodeURIComponent(tag)}`}
+              href={`/tags/${tagToSlug(tag)}`}
               className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted transition-colors hover:text-fg"
             >
               {tag}

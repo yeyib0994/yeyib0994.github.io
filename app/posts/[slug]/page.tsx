@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { getAllPosts, getPostBySlug, tagToSlug } from "@/lib/posts";
 import { MdxContent } from "@/components/mdx-content";
 
 export const dynamicParams = false;
@@ -74,7 +74,7 @@ export default async function PostPage({
             {post.tags.map((tag) => (
               <Link
                 key={tag}
-                href={`/tags/${encodeURIComponent(tag)}`}
+                href={`/tags/${tagToSlug(tag)}`}
                 className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted transition-colors hover:text-fg"
               >
                 {tag}

@@ -20,10 +20,10 @@ export default function TagsPage() {
         <p className="text-muted">暂无标签。</p>
       ) : (
         <div className="flex flex-wrap gap-2">
-          {tags.map(({ tag, count }) => (
+          {tags.map(({ tag, slug, count }) => (
             <Link
               key={tag}
-              href={`/tags/${encodeURIComponent(tag)}`}
+              href={`/tags/${slug}`}
               className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-sm text-fg transition-colors hover:bg-card"
             >
               {tag}

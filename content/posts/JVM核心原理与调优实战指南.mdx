@@ -1,4 +1,5 @@
 ---
+slug: jvm-tuning
 title: "JVM 核心原理与调优实战指南"
 date: "2026-08-10"
 description: "从内存模型到垃圾回收，从核心参数到线上排查，一篇讲透 JVM 与调优"
@@ -52,7 +53,7 @@ GC Roots 包括：虚拟机栈中的局部变量、方法区中的静态变量�
 | Parallel Scavenge | 新生代 | 关注吞吐量 |
 | CMS | 老年代 | 低延迟，并发标记清除，已逐步淘汰 |
 | G1 | 整堆 | 分区化设计，可预测停顿，JDK 9+ 默认 |
-| ZGC | 整堆 | 超低延迟（<10ms），TB 级堆，JDK 11+ |
+| ZGC | 整堆 | 超低延迟（&lt;10ms），TB 级堆，JDK 11+ |
 | Shenandoah | 整堆 | 与 ZGC 类似，RedHat 主导 |
 
 选型建议：JDK 8 默认 Parallel，中低延迟用 G1；超大堆且对延迟敏感，考虑 ZGC。JDK 17 LTS 已相当成熟，ZGC 生产可用。
