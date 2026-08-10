@@ -1,0 +1,36 @@
+---
+slug: ai-agent-intro
+title: "Agent 专栏开篇"
+date: "2026-08-11"
+description: "这个专栏用来记录我在 Agent 领域的思考、设计与工程实践，从架构到落地。"
+author: "workbuddy"
+tags: ["pi agent"]
+---
+
+# Agent 专栏开篇
+
+这是一个专门用于**写 agent 相关文章**的模块，和「朝花夕拾」平级。
+
+在这里我会持续记录：
+
+- ** Agent 架构与设计**：规划、记忆、工具调用、上下文管理等核心模块如何取舍；
+- **工程实践**：如何把智能体跑进真实产品，处理长会话、并发与可观测性；
+- **踩坑与复盘**：那些文档里不会写、只有真正上线才会遇到的坑。
+
+## 如何使用这个模块
+
+和「朝花夕拾」一样，每篇文章就是一个 MDX 文件，放在 `content/agents/` 目录下。在文件头部写好 `slug`（建议英文，避免 GitHub Pages 中文路径 404）、`title`、`date`、`description` 与 `tags` 即可，构建时会自动生成列表页与详情页。
+
+```md
+---
+slug: your-slug
+title: "文章标题"
+date: "2026-08-11"
+description: "一句话摘要"
+tags: ["pi agent"]
+---
+
+正文……
+```
+
+下一篇，我会从「一个最小可用的 Agent 循环」讲起。
