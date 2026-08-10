@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV = [
-  { href: "/", label: "文章" },
-  { href: "/tags", label: "标签" },
+  { href: "/diary", label: "朝花夕拾" },
+  { href: "/agents", label: "agent" },
   { href: "/about", label: "关于" },
 ];
 

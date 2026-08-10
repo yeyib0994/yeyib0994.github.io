@@ -10,11 +10,13 @@ export default function AboutPage() {
     <div className="prose prose-neutral max-w-none">
       <h1>关于</h1>
       <p>
-        你好，欢迎来到我的个人博客。这里记录我在编程与技术路上的思考、笔记与项目实践。
+        你好，欢迎来到我的个人空间。这里分为两个平级的模块：<strong>朝花夕拾</strong>
+        （记录日常思考、学习笔记与项目实践）与 <strong>agent</strong>
+        （关于 AI 智能体的思考、设计与工程实践）。
       </p>
       <p>
         本博客使用 <strong>Next.js</strong>（App Router）与 <strong>MDX</strong>{" "}
-        构建，支持 Markdown 写作、暗黑模式切换以及标签分类浏览。所有文章以本地
+        构建，支持 Markdown 写作、暗黑模式切换以及标签分类浏览。所有内容以本地
         MDX 文件管理，部署简单、阅读清爽。
       </p>
       <h2>技术栈</h2>

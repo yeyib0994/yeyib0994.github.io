@@ -36,8 +36,8 @@ export default async function TagPage({
   return (
     <div>
       <div className="mb-2 text-sm text-muted">
-        <Link href="/tags" className="hover:text-fg">
-          ← 所有标签
+        <Link href="/" className="hover:text-fg">
+          ← 返回首页
         </Link>
       </div>
       <header className="mb-8">

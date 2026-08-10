@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
-import { tagToSlug } from "@/lib/posts";
+import { COLLECTIONS, tagToSlug } from "@/lib/posts";
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("zh-CN", {
@@ -32,7 +32,7 @@ export function PostCard({ post }: { post: PostMeta }) {
       </div>
       <h3 className="mt-1.5 text-lg font-semibold tracking-tight">
         <Link
-          href={`/posts/${post.slug}`}
+          href={`/${COLLECTIONS[post.collection].route}/${post.slug}`}
           className="text-fg transition-opacity hover:opacity-70"
         >
           {post.title}
